@@ -1,21 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+using Moq;
 using SimpleApp.Controllers;
 using SimpleApp.Models;
+using System.Collections.Generic;
 using Xunit;
-using Moq;
 
-namespace SimpleApp.Tests {
-    public class HomeControllerTests {
-
+namespace SimpleApp.Tests
+{
+    public class HomeControllerTests
+    {
         //class FakeDataSource : IDataSource {
         //    public FakeDataSource(params Product[] data) => Products = data;
         //    public IEnumerable<Product> Products { get; set; }
         //}
 
         [Fact]
-        public void IndexActionModelIsComplete() {
-
+        public void IndexActionModelIsComplete()
+        {
             // Arrange
             Product[] testData = new Product[] {
                 new Product { Name = "P1", Price = 75.10M },
@@ -25,8 +26,8 @@ namespace SimpleApp.Tests {
             var mock = new Mock<IDataSource>();
             mock.SetupGet(m => m.Products).Returns(testData);
             var controller = new HomeController();
-            controller.dataSource = mock.Object; 
-           
+            controller.dataSource = mock.Object;
+
             // Act
             var model = (controller.Index() as ViewResult)?.ViewData.Model
                 as IEnumerable<Product>;

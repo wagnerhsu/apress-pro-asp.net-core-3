@@ -1,13 +1,13 @@
 using SimpleApp.Models;
 using Xunit;
 
-namespace SimpleApp.Tests {
-
-    public class ProductTests {
-
+namespace SimpleApp.Tests
+{
+    public class ProductTests
+    {
         [Fact]
-        public void CanChangeProductName() {
-
+        public void CanChangeProductName()
+        {
             // Arrange
             var p = new Product { Name = "Test", Price = 100M };
 
@@ -19,8 +19,8 @@ namespace SimpleApp.Tests {
         }
 
         [Fact]
-        public void CanChangeProductPrice() {
-
+        public void CanChangeProductPrice()
+        {
             // Arrange
             var p = new Product { Name = "Test", Price = 100M };
 
